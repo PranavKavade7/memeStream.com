@@ -183,8 +183,6 @@ function refreshVideoComments() {
     displayVideoComments();
 }
 
-localStorage.clear();
-
 // Initial display of comments and leaderboard
 displayComments();
 displayVideoComments();
