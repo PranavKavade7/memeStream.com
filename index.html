@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment Leaderboard Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>    
+
+       <mark> <h1> memeStream </h1> </mark>  
+
+      
+        
+
+    <!-- Username Section -->
+
+    <div class="username-section">
+        <h2>Enter Your Username</h2>
+        <mark><p>*Your username will be featured on the leaderboard</p></mark>
+        <input type="text" id="username-input" placeholder="Enter your name" oninput="userTyping()" />
+        <button onclick="setUsername()">Save</button>
+        <p id="username-message" class="message"></p>
+        <p id="typing-message" class="typing-message"></p>
+
+        <h1> read the description </h1>
+           <p class="para"> memeStream is a user-friendly web application designed to facilitate discussions and interactions through comments on various topics or posts. It aims to create a vibrant community where users can share their thoughts, ask questions, and engage in meaningful conversations. CommentBook is perfect for blogs, articles, here user engagement is essential. </p>
+
+          <br/> <br/> 
+ 
+           <p class="para"> 
+              *You can give One like to yourself and only one like for others aswell.. 
+<br/> <br/>
+1> @username - You can reply to others by tagging their username just like this.
+<br/> <br/>
+2> You can like other people's comments—getting more likes can help your comment get featured on the leaderboard!
+<br/> <br/>
+3> Don’t forget to hit refresh to see the latest updates.
+Happy commenting! 🎉 </p>
+
+ 
+    </div>
+
+    <!-- Main Section -->
+    <div class="main-section">
+
+        <!-- Post Section for Image -->
+        <div class="post-section">
+            <h2>Trending Image</h2>
+            <img src="https://th.bing.com/th/id/OIP.DT63GcVqvnXeys2Phc6SfAAAAA?rs=1&pid=ImgDetMain" alt="Trending Meme" class="post-image">
+        </div>
+
+        <!-- Comment Section for Image -->
+        <div class="comments-section">
+            <h2>Comments on Post</h2>
+            <button onclick="refreshComments()">Refresh Comments</button>
+            <div id="comments-container" class="scrollable-section">
+                <ul id="comments-list"></ul>
+            </div>
+            <div class="light"></div>
+            <input type="text" id="comment-input" placeholder="Add a comment..." oninput="userTyping()" />
+            <button onclick="addComment()">Post Comment</button>
+            <p id="comment-message" class="message"></p>
+        </div>
+
+        <!-- Post Section for Video -->
+        <div class="post-section">
+            <h2>Trending Video</h2>
+            <video class="post-video" controls>
+                <source src="https://media.vlipsy.com/vlips/0l71MSRO/360p.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- Comment Section for Video -->
+        <div class="comments-section">
+            <h2>Comments on Post</h2>
+            <button onclick="refreshVideoComments()">Refresh Comments</button>
+            <div id="video-comments-container" class="scrollable-section">
+                <ul id="video-comments-list"></ul>
+            </div>
+            <div class="light"></div>
+            <input type="text" id="video-comment-input" placeholder="Add a comment on the video..." oninput="userTyping()" />
+            <button onclick="addVideoComment()">Post Comment</button>
+            <p id="video-comment-message" class="message"></p>
+
+        </div>
+
+          <!-- Feedback Section -->
+<div class="feedback-section" id="feedback-section">
+    <h2>Give Us Your Feedback!</h2>
+    <textarea id="feedback-input" placeholder="Your feedback here..." rows="4" cols="50"></textarea>
+    <button onclick="submitFeedback()">Submit Feedback</button>
+    <p id="feedback-message" class="message"></p>
+</div>
+
+<script>
+    // Function to submit feedback and store it in localStorage
+    function submitFeedback() {
+        const feedback = document.getElementById('feedback-input').value;
+        if (feedback) {
+            localStorage.setItem('feedback', feedback);
+            document.getElementById('feedback-message').innerText = 'Thank you for your feedback!';
+            document.getElementById('feedback-input').value = ''; // Clear the input field after submission
+        } else {
+            document.getElementById('feedback-message').innerText = 'Please enter your feedback.';
+        }
+    }
+</script>
+
+
+            <div class="footer">
+        <h1>We Value Your Feedback!</h1>
+        <p>Help us improve the site. Your feedback makes a difference!</p>
+        <button onclick="donate()">Donate</button>
+
+        <!-- Donation Message -->
+        <div class="donation-message" id="donation-message">
+            <p><strong>PhonePe:</strong> Accepted ₹49<br/>
+            <strong>ID:</strong> 9168823862@ybl</p>
+        </div>
+    </div>
+
+    <script>
+        function donate() {
+            // Show the donation message when the button is clicked
+            document.getElementById("donation-message").style.display = "block";
+        }
+    </script>
+    </div>
+
+    <!-- Leaderboard Section on the right -->
+    <div class="leaderboard-section" id="leaderboard-section">
+        <h2>Leaderboard</h2>
+        <ul id="leaderboard"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
